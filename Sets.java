@@ -2,6 +2,7 @@ import java.util.Map;
 
 public class Sets 
 {
+    // Option of interception.
     public static String interception(String set1, String set2){
         // Format must be changed.
         // return reFormat(set1).toString();
@@ -16,6 +17,29 @@ public class Sets
                 if(el.equals(el2) &&  !isIn(el, set3)){
                     set3 += el2 + ",";
                 }
+            }
+        }
+
+        set3 = readableFormat(set3);
+
+        return set3;
+    }
+
+    // Option of union.
+    public static String union(String set1, String set2)
+    {
+        String [] set1_arr = reFormat(set1).split(",");
+        String [] set2_arr = reFormat(set2).split(",");
+        String set3 = "";
+
+        for (String el: set1_arr) {
+            for (String el2: set2_arr) {
+                if(!isIn(el, set3) )
+                    set3 += el + ",";
+
+                if(!isIn(el2, set3))
+                    set3 += el2 + ",";
+
             }
         }
 

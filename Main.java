@@ -47,7 +47,21 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 String _set1 = set1.getText();
                 String _set2 = set2.getText();
-                result.setText(Sets.readableFormat(_set1) + " U " + Sets.readableFormat(_set2) + " = " + Sets.interception(_set1, _set2));
+                result.setText(Sets.readableFormat(_set1) + " ∩ " + Sets.readableFormat(_set2) + " = " + Sets.interception(_set1, _set2));
+            }
+        });
+        
+        JButton union = new JButton("Union");
+        union.setBounds(300, 120, 130, 30);
+        union.setBackground(Color.white);
+        window.add(union);
+
+        union.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String _set1 = set1.getText();
+                String _set2 = set2.getText();
+                result.setText(Sets.readableFormat(_set1) + " U " + Sets.readableFormat(_set2) + " = " + Sets.union(_set1, _set2));
             }
         });
 
