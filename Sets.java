@@ -71,18 +71,15 @@ public class Sets
         // 5- a b c d
         // Formatting to -> a,b,c,d
         // No spaces no commas no symbols!
-        Character[] rejectedChars = {
-            '{','}',',','(',')','[',']',' ',
-        };
         String result = "";
         String gatheringLetters = "";
         for (Character letter : text.toCharArray()) {
-            if(letter == ','){
+            if(letter == ',' || letter == ' '){
                 result += gatheringLetters + ",";
                 gatheringLetters = "";
                 continue;
             }
-            if(!isIn(letter, rejectedChars)){
+            if(Character.isAlphabetic(letter)){
                 // System.out.println(letter);
                 gatheringLetters += letter;
             }
@@ -91,15 +88,6 @@ public class Sets
         result += gatheringLetters;
 
         return result;
-    }
-
-    private static boolean isIn(Character c, Character[] list){
-        for (Character el : list) {
-            if(c == el)
-                return true;
-        }
-
-        return false;
     }
 
     private static boolean isIn(String item, String str){

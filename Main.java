@@ -37,7 +37,7 @@ public class Main {
 
         // Button of Interception.
         JButton interception = new JButton("Interception");
-        interception.setBounds(300, 70, 130, 30);
+        interception.setBounds(300, 50, 130, 30);
         interception.setBackground(Color.white);
         window.add(interception);
 
@@ -52,7 +52,7 @@ public class Main {
         });
         
         JButton union = new JButton("Union");
-        union.setBounds(300, 120, 130, 30);
+        union.setBounds(300, 100, 130, 30);
         union.setBackground(Color.white);
         window.add(union);
 
