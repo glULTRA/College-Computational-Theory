@@ -2,8 +2,8 @@ import java.util.Map;
 
 public class Sets 
 {
-    // Option of interception.
-    public static String interception(String set1, String set2){
+    // Operation of intersection .
+    public static String intersection (String set1, String set2){
         // Format must be changed.
         // return reFormat(set1).toString();
         // return reFormat(set2).toString();
@@ -14,6 +14,7 @@ public class Sets
 
         for (String el: set1_arr) {
             for (String el2: set2_arr) {
+                // Operation intersection logic.
                 if(el.equals(el2) &&  !isIn(el, set3)){
                     set3 += el2 + ",";
                 }
@@ -25,7 +26,7 @@ public class Sets
         return set3;
     }
 
-    // Option of union.
+    // Operation of union.
     public static String union(String set1, String set2)
     {
         String [] set1_arr = reFormat(set1).split(",");
@@ -34,12 +35,39 @@ public class Sets
 
         for (String el: set1_arr) {
             for (String el2: set2_arr) {
+                // Operation union logic.
                 if(!isIn(el, set3) )
                     set3 += el + ",";
 
                 if(!isIn(el2, set3))
                     set3 += el2 + ",";
+            }
+        }
 
+        set3 = readableFormat(set3);
+
+        return set3;
+    }
+
+    public static String subtraction(String set1, String set2){
+        String [] set1_arr = reFormat(set1).split(",");
+        String [] set2_arr = reFormat(set2).split(",");
+        String set3 = "";
+
+        for (String el: set1_arr) {
+            boolean isElementExist = false;
+
+            for (String el2: set2_arr) {
+                // Operation subtraction logic.
+                if(el.equals(el2)){
+                    // set3 += el + ",";
+                    isElementExist = true;
+                    break;
+                }
+            }
+            
+            if(!isElementExist && !isIn(el, set3)){
+                set3 += el + ",";
             }
         }
 

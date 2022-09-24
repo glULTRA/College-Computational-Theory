@@ -35,19 +35,19 @@ public class Main {
         result.setBounds(50, 150, 500, 30);
         window.add(result);
 
-        // Button of Interception.
-        JButton interception = new JButton("Interception");
-        interception.setBounds(300, 50, 130, 30);
-        interception.setBackground(Color.white);
-        window.add(interception);
+        // Button of intersection .
+        JButton intersection  = new JButton("intersection ");
+        intersection .setBounds(300, 50, 130, 30);
+        intersection .setBackground(Color.white);
+        window.add(intersection );
 
-        // Action Listener of interception button.
-        interception.addActionListener(new ActionListener(){
+        // Action Listener of intersection  button.
+        intersection .addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
                 String _set1 = set1.getText();
                 String _set2 = set2.getText();
-                result.setText(Sets.readableFormat(_set1) + " ∩ " + Sets.readableFormat(_set2) + " = " + Sets.interception(_set1, _set2));
+                result.setText(Sets.readableFormat(_set1) + " ∩ " + Sets.readableFormat(_set2) + " = " + Sets.intersection (_set1, _set2));
             }
         });
         
@@ -62,6 +62,20 @@ public class Main {
                 String _set1 = set1.getText();
                 String _set2 = set2.getText();
                 result.setText(Sets.readableFormat(_set1) + " U " + Sets.readableFormat(_set2) + " = " + Sets.union(_set1, _set2));
+            }
+        });
+
+        JButton subtraction = new JButton("Subtraction");
+        subtraction.setBounds(300, 150, 130, 30);
+        subtraction.setBackground(Color.white);
+        window.add(subtraction);
+
+        subtraction.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String _set1 = set1.getText();
+                String _set2 = set2.getText();
+                result.setText(Sets.readableFormat(_set1) + " - " + Sets.readableFormat(_set2) + " = " + Sets.subtraction(_set1, _set2));
             }
         });
 
