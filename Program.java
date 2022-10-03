@@ -1,23 +1,25 @@
+import DFA_Models.*;
+
 public class Program {
     public static void main(String[] args) {
-        // Example 1
-        boolean result = DFA_Models.StringStartsWithZero.q0("010", 0);
-        DFA_Models.StringStartsWithZero.showNodes();
-        System.out.println(result);
+        // {Example 1}
+        DFA_Model model = new StringStartsWithZero("01", 0);
+        model.showNodes();
 
         // Example 2
-        result = DFA_Models.StringLengthOfTwo.q0("11", 0);
-        DFA_Models.StringLengthOfTwo.showNodes();
-        System.out.println(result);
+        model = new StringLengthOfTwo("01", 0);
+        model.showNodes();
 
         // Example 3
-        result = DFA_Models.StringIncludeOf0011.q0("0011", 0);
-        DFA_Models.StringIncludeOf0011.showNodes();
-        System.out.println(result);
+        model = new StringInclude0011("110011", 0);
+        model.showNodes();
 
         // Example 4
-        result = DFA_Models.StringIncludeThe.q0("mother", 0);
-        DFA_Models.StringIncludeThe.showNodes();
-        System.out.println(result);
+        model = new StringIncludeThe("mother", 0);
+        model.showNodes();
+        model.store("teacher", 0);
+        model.showNodes();
+
+
     }
 }
