@@ -1,7 +1,5 @@
 package NFA_Models;
 
-import DFA_Models.DFA_Model;
-
 public class StringEndsWith0 extends NFA_Model {
     /*
      * Set = {0, 00, 10, 000, ....}
