@@ -1,7 +1,9 @@
 import DFA_Models.*;
+import NFA_Models.*;
 
 public class Program {
     public static void main(String[] args) {
+        // DFA examples.
         // Example 1
         DFA_Model model = new StringStartsWithZero("01", 0);
         model.showNodes();
@@ -26,6 +28,10 @@ public class Program {
         model.store("01011", 0);
         model.showNodes();
 
+        // NFA examples.
+        // Example 1
+        NFA_Model nfa_model = new StringEndsWith0("010", 0);
+        nfa_model.showNodes();
 
     }
 }
