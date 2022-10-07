@@ -19,7 +19,7 @@ public class Program {
         // Example 4
         model = new StringIncludeThe("mother", 0);
         model.showNodes();
-        model.store("teacher", 0);
+        model.store("ththe", 0);
         model.showNodes();
 
         // Example 5

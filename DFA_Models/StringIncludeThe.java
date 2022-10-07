@@ -6,13 +6,16 @@ public class StringIncludeThe extends DFA_Model{
      * At least = 3 + 1 = 4 super.nodes
      * 
      * 
-     *                                 t                              h               e
+     *                                                       t
+     *                                          ______________________________
+     *                                         |                              |
+     *                                 t       \/                     h       |        e
      * ( (a:z)-[t] recursion ) q0 -----------> q1 (t recursion) ------------> q2 ------------> q3 (final node)(recursion a:z)
      *                         /\              |                              |
      *                         |               |                              |
      *                         |__(a:z)-[t,h]__|                              |
      *                         |                                              |
-     *                         |______________________(a:z)-e_________________|
+     *                         |______________________(a:z)-[e,t]_____________|
      * 
      */      
 
@@ -62,6 +65,8 @@ public class StringIncludeThe extends DFA_Model{
         if(text.charAt(index) == 'e'){
             return q3(text, index+1);
         }
+        else if(text.charAt(index) == 't')
+            return q1(text, index+1);
 
         return q0(text, index+1);
     }
