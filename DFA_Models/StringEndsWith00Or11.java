@@ -1,29 +1,29 @@
 package DFA_Models;
 
 public class StringEndsWith00Or11 extends DFA_Model {
-    /*
-     * set = {00, 11, 000, 011, 100, 111, 0011....}
-     * at least = 2+1 = 3 nodes
-     * 
-     *        0              0
-     * q0 ------->  q1  -----------> q2 (final node) (recursion 0)
-     * |           ↙ ⬆              ↙ ⬆
-     * |      1  ↙ ↗  0           ↙ ↗
-     * | 1     ↙ ↗              ↙ ↗
-     * |     ↙ ↗              ↙ ↗
-     * V   ↙ ↗              ↙ ↗
-     * q3  ↗              ↙ ↗ 
-     * |                ↙ ↗
-     * |         1    ↙ ↗     0
-     * |            ↙ ↗
-     * |          ↙ ↗
-     * | 1      ↙ ↗
-     * |      ↙ ↗
-     * |    ↙ ↗
-     * |  ↙ ↗
-     * V   
-     * q4 (final node) (recursion 1)
-     */    
+  /*
+  * language = {00, 11, 000, 011, 100, 111, 0011....}
+  * at least = 2+1 = 3 nodes
+  * 
+  *        0              0
+  * q0 ------->  q1  -----------> q2 (final node) (recursion 0)
+  * |           ↙ ⬆             ↙ 
+  * |         ↙ ↗ ⬆           ↙
+  * | 1   1 ↙ ↗ 0 ⬆         ↙
+  * |     ↙ ↗     ⬆       ↙ 0
+  * V   ↙ ↗       ⬆     ↙
+  * q3  ↗⬅⬅⬅⬅⬅⬆⬅ ↙ 
+  * |             ⬆  
+  * |         1   ⬆     
+  * |            ↗
+  * |          ↗
+  * | 1      ↗
+  * |      ↗
+  * |    ↗
+  * |  ↗
+  * V   
+  * q4 (final node) (recursion 1)
+*/    
 
     public StringEndsWith00Or11(){
         super();
@@ -46,7 +46,7 @@ public class StringEndsWith00Or11 extends DFA_Model {
             return q1(text, index+1);
         else if(text.charAt(index) == '1')
             // Go for the second path of 1.
-            return q2(text, index+1);
+            return q3(text, index+1);
         
         return q0(text, index+1);
     }
