@@ -18,22 +18,43 @@ public class StringEndsWith0 extends NFA_Model {
 
     @Override
     public boolean q0(String text, int index){
-        super.nodes += "q0 -> ";
-        if(text.length() == index)
+        if(text.length() != index){
+            super.inputs+= "    "+ text.charAt(index) +"   ";
+            super.nodes += "q0 ---> ";
+        }
+        if(text.length() == index){
+            super.nodes += "q0 ";
             return false;
+        }
         
-        if(text.charAt(index) == '0')
-            return q1(text, index+1);
-        
+        if(text.charAt(index) == '0'){   
+            return q1(text, index+1) || q0(text, index+1);
+        }
+
         return q0(text, index+1);
         
     }
 
     public boolean q1(String text, int index){
-        super.nodes += "q1 (final node) -> ";
-        if(text.length() == index)
+        String spaces = "";
+        int n = nodes.length() - subnodes.length();
+        System.out.println(nodes);
+        for (int i = 0; i < n; i++) {
+            spaces += " ";
+        }
+
+
+        if(text.length() == index){
+            super.nodes += "q0 ";
+            super.dashes += spaces +  "|    ";
+            super.subnodes.insert(super.subnodes.length(), spaces + " ->qf (accepted)");
             return true;
+        }else{
+            super.dashes += spaces +  "|      ";
+            super.subnodes.insert(super.subnodes.length(), spaces + " ->qf x");
+        }
         
-        return q0(text, index+1);
+        return false;
     }
+   
 }

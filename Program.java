@@ -30,7 +30,7 @@ public class Program {
 
         // NFA examples.
         // Example 1
-        NFA_Model nfa_model = new StringEndsWith0("010", 0);
+        NFA_Model nfa_model = new StringEndsWith0("0100010", 0);
         nfa_model.showNodes();
 
     }
